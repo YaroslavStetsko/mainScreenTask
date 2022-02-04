@@ -1,0 +1,280 @@
+@import './vars.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(30, 31, 31);
+  box-sizing: border-box;
+  font-size: 15px;
+  color: aliceblue;
+  
+//  @font-face {
+//    font-family:'Poppins';
+//    src: local('Poppins'), url(./FontPoppins/Poppins-Black.ttf) format('truetype');
+//  } 
+
+ font-family: 'Poppins', 'Segoe UI', 'Roboto', 'Oxygen',
+ 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',sans-serif;
+}
+
+
+.app-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+}
+
+span {
+  margin: 0px 5px;
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  padding: 10px 10px;
+  border: 1px solid $border-color;
+  align-items: center;
+  .user-info {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+    align-items: center;
+    &__activities {
+      display: flex;
+      gap: 15px;
+      position: relative;
+      margin-left: 15px;
+      align-items: center;
+      &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        border-left: 2px solid $border-color;
+        top: 6px;
+        left: -10px;
+        height: 15px;
+      }
+      &-logo-section{
+        position: relative;
+      
+        .red-dot{
+          position: absolute;
+          top:-3px;
+          right: -3px;
+        }
+      }
+    }
+
+  }
+
+  .main-info{
+    display: flex;
+    flex-wrap: wrap;
+
+    }
+  }
+
+
+main {
+  padding: 0 15%;
+}
+
+.project-creator-wrapper{
+  display: flex;
+  padding: 20px 0;
+  border-bottom:  1.5px solid $border-color;
+  
+   .block-creator {
+     display: flex;
+     border: 1px solid $border-color;
+     width: 30%;
+     height: 20vh;
+     justify-content: center;
+     align-items: center;
+     gap: 10px;
+     border-radius: 15px;
+
+     &__icon{
+       border: 1px solid $border-color;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       width: 60px;
+       height: 60px;
+       border-radius: 10px;
+     }
+
+     &__text-area {
+       display: flex;
+       flex-direction: column;
+     }
+     &__add-icon {
+       margin-left: 20px;
+       cursor: pointer;
+      img {
+        width: 20px;
+      }
+     }
+
+   }
+}
+
+ .recipes-wrapper{
+   display: flex;
+   flex-direction: column;
+   padding: 15px 0;
+
+   .recipes__info-block{
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      padding-left: 25px;
+      .recipes__info-block-title{
+ 
+        &::before {
+          content : url(../../public/Assets/Lightning.svg);
+          top: 0;
+          left: -5px;
+          position: absolute;
+        }
+      }
+
+      .recipes__info-block-bnts{
+         display: flex;
+         gap: 5px;
+         
+         .info-btn{
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           min-width: 30px;
+           max-height: 25px;
+           cursor: pointer;
+           outline: none;
+           padding: 0 15px;
+           border: 1px solid $border-color;    
+         }
+      }  
+ } 
+  .recipes__recommended-recepies{
+  display: flex;
+  gap: 1%;
+  margin-top: 30px;
+}
+}
+
+ .recipe-item{
+   display: flex;
+   flex-direction: column;
+   position: relative;
+   width: 24%;
+  .recipe-item__hidden{
+   position: absolute;
+   width: 100%;
+   height: 200px;
+   background-color: rgba($color: #000000, $alpha: 0.5);
+   gap: 5px;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+
+   button {
+     padding: 5px 15px;
+     border-radius: 5px;
+     border: none;
+     &:first-child{
+       background-color: blue;
+     }
+   }
+  }
+
+  
+   .recipe-item__photo{
+     width: 100%;
+     height: 200px;
+     border-radius: 20px;
+     background-size: contain ;
+     background-repeat: no-repeat;
+     cursor: pointer;
+     transition: .5s ease;
+     }
+
+   .recipe-item__text{
+    position: relative;
+    margin-top: 20px;
+   }
+   .span-title {
+     padding-left: 15px;
+     &::before {
+       content: url(../../public/Assets/UserLogo.svg);
+       position: absolute;
+       top: 0;
+       left: -5px;
+     }
+   }
+
+ }
+
+ .project-wrapper{
+  
+  .project-header{
+   position: relative;
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 20px;
+    span {
+      margin-left: 20px;
+      &::before {
+      content: url('../../public/Assets/vuesax-linear-calendar.svg');
+      position: absolute;
+      left: -5px;
+          }
+    }
+    input {
+      width: 300px;
+      border: 1px solid $border-color;
+      padding: 5px 15px;
+
+      &::before {
+        content : url(../../public/Assets/Icon_search.svg);
+        position: absolute;
+        left: -5px;
+      }
+    }
+  }
+ }
+
+ .project-item{
+   padding: 15px;
+   border-top: 1px solid $border-color;
+   display: flex;
+   justify-content: space-between;
+   cursor: pointer;
+
+.logo-wrapper{
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid $border-color;
+  border-radius: 50%;
+  background-position: 50% 33%;
+  
+}
+
+  .project-item-description{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+ }
