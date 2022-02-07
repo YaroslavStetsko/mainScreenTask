@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../css/index.css';
+import '../../css/index.css';
 
 export interface recipiItemProps {
   id : number,

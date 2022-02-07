@@ -1,4 +1,4 @@
-import '../css/index.css';
+import '../../css/index.css';
 
 export interface projectItem {
     id: number,

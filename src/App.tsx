@@ -2,33 +2,41 @@ import './css/index.css';
 import {useState, useEffect} from 'react';
 //components
 import Header from './components/Header';
-import ProjectCreator from './components/PtojectCreator';
-import Recipes from './components/Recipes';
-import Projects from './components/Projects';
-import { projectItem } from './components/ProjectItem';
-import { recipiItemProps } from './components/RecipeItem';
+import ProjectCreator from './components/Project/PtojectCreator';
+import Recipes from './components/Recipe/Recipes';
+import Projects from './components/Project/Projects';
+import { projectItem } from './components/Project/ProjectItem';
+import { recipiItemProps } from './components/Recipe/RecipeItem';
+import { recipeRequest, projectsRequest } from './services/dbFetch';
 
 function App():JSX.Element {
-const [isRecipesLoaded, setIsRecipeIsLoaded] = useState<boolean>(false);
-const [recipes, setRecipes] = useState<recipiItemProps[]>([]); 
-const [isProjectsLoaded, setIsProjectLoaded] = useState<boolean>(false);
-const [projects, setProjects] = useState<projectItem[]>([]);
+
+interface appStateProps {
+  isRecipesLoaded: boolean,
+  recipes: recipiItemProps[],
+  isProjectsLoaded: boolean,
+  projects: projectItem[]
+} 
+
+const initState : appStateProps = {
+  isRecipesLoaded: false,
+  recipes: [],
+  isProjectsLoaded: false,
+  projects: []
+}
+
+const [appState, setAppState] = useState(initState)
 
 useEffect(() => {
-  const recipeRequest = async () => {
-    const request = await fetch('http://localhost:3004/recipes');
-    const respond = await request.json();
-    return respond
-  }
-  const projectsRequest = async () => {
-    const request = await fetch('http://localhost:3004/projects');
-    const respond = await request.json();
-    return respond
-  }
-  recipeRequest().then(data => setRecipes(data));
-  projectsRequest().then(data => setProjects(data));
-  setIsRecipeIsLoaded(true);
-  setIsProjectLoaded(true);
+  Promise.all([recipeRequest(),projectsRequest()]).then(data => {
+    const newState = {
+      isRecipesLoaded: true,
+      recipes: data[0],
+      isProjectsLoaded: true,
+      projects: data[1]
+    }
+    setAppState(newState)
+  })
 },[])
 
   return (
@@ -36,8 +44,8 @@ useEffect(() => {
       <Header/>
      <main>
        <ProjectCreator/>
-       {isRecipesLoaded ? <Recipes recipes = {recipes} /> : <h2>Loading data ...</h2>}
-       {isProjectsLoaded ? <Projects projects= {projects} /> : <h2>Loading data ...</h2>}
+       {appState.isRecipesLoaded ? <Recipes recipes = {appState.recipes} /> : <h2>Loading data ...</h2>}
+       {appState.isProjectsLoaded ? <Projects projects= {appState.projects} /> : <h2>Loading data ...</h2>}
      </main>
     </div>
   );

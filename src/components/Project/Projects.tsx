@@ -1,6 +1,6 @@
-import '../css/index.css';
-import ProjectItem from '../components/ProjectItem';
-import {projectItem} from '../components/ProjectItem';
+import '../../css/index.css';
+import ProjectItem from './ProjectItem';
+import {projectItem} from './ProjectItem';
 
 interface projectProps {
   projects : projectItem[]

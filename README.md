@@ -6,10 +6,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
+### Run backend first => `json-server --watch db.json --port 3004` (you might be needed to install json-server local `npm install -g json-server`)
+
+### Run this second =>  `npm start`
+
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Backend will be run on port [http://localhost:3004] you can also view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.

@@ -1,5 +1,5 @@
-import '../css/index.css';
-import RecepiItem, { recipiItemProps } from '../components/RecipeItem';
+import '../../css/index.css';
+import RecepiItem, { recipiItemProps } from './RecipeItem';
 
 
 
